@@ -11,7 +11,7 @@ phases:
       - echo "Enteredin post-build phase"
 artifacts:
   files:
-    - index.html
+    - home.php
     
     
     
