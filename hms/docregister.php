@@ -8,14 +8,14 @@ $fname = $_POST['firstname'];
   $lname = $_POST['lastname'];
   $gender = $_POST['sex'];   
   $email = $_POST['Email'];
-$role= 'pharmacy';
+$role= 'doctor';
  
   $password =($_POST['pass']);
 
 
 
 // Query to check if user with this email already exists
-$query1="SELECT * FROM pharmacy where (email=:useremail)";
+$query1="SELECT * FROM patient where (email=:useremail)";
 $queryt = $dbh -> prepare($query1);
 $queryt->bindParam(':useremail',$email,PDO::PARAM_STR);
 
@@ -24,7 +24,7 @@ $results = $queryt -> fetchAll(PDO::FETCH_OBJ);
 if($queryt -> rowCount() == 0)
 {
 // Query for Insertion of new user data into table
-$sql="INSERT INTO pharmacy(fname,lname,email,gender,password,role) VALUES(:userfname,:userlname,:useremail,:usergender,:userpassword,:userRole)";
+$sql="INSERT INTO doctors(fname,lname,email,gender,password,role) VALUES(:userfname,:userlname,:useremail,:usergender,:userpassword,:userRole)";
 $query = $dbh->prepare($sql);
 
 // Binding Post Values
